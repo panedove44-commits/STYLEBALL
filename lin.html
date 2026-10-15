@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gol & Estilo | Tienda de Camisetas de Fútbol</title>
+    <link rel="stylesheet" href="estilos/lin.css">
+</head>
+<body>
+    <header class="header-tienda">
+        <div class="logo-tienda">
+            <h1>⚽ GOL & ESTILO</h1>
+        </div>
+        <nav class="nav-tienda">
+            <a href="#inicio">Inicio</a>
+            <a href="#catalogo">Catálogo</a>
+            <a href="#ofertas">Ofertas</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+        <div class="header-carrito">
+            <button class="btn-carrito" onclick="abrirCarrito()">🛒 Carrito (<span id="cart-count">0</span>)</button>
+        </div>
+    </header>
+
+    <main class="main-contenido">
+
+        <section id="inicio" class="hero">
+            <video class="video-hero" autoplay loop muted playsinline>
+                <source src="imagenes/promo-camisetas.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay">
+                <h2>NUEVAS CAMISETAS 2026</h2>
+                <p>Las colecciones oficiales de tus equipos y selecciones favoritas con la mejor calidad.</p>
+                <a href="#catalogo" class="btn-primary">COMPRAR AHORA</a>
+            </div>
+        </section>
+
+        
+        <section id="catalogo" class="productos">
+            <h3 class="titulo-seccion">Catálogo de Camisetas</h3>
+            
+            <div class="caja-buscador">
+                <input type="text" id="input-buscar-camisa" onkeyup="filtrarCamisetas()" placeholder="🔍 Buscar camiseta por equipo o selección (ej. Real Madrid, Perú, Argentina)...">
+            </div>
+
+            <div class="grid-productos" id="grid-camisetas">
+                <div class="card tarjeta-camisa" data-equipo="real madrid espana club">
+                    <div class="img-container">
+                        <img src="imagenes/camisa-real-madrid.jpg" alt="Camiseta Real Madrid 2026" class="img-producto">
+                        <span class="badge">NUEVO</span>
+                    </div>
+                    <h4>Camiseta Real Madrid 2026</h4>
+                    <p class="precio">$89.99 USD</p>
+                    <p class="descripcion">Edición local con tecnología transpirable de alta gama.</p>
+                    <button class="btn-card" onclick="agregarAlCarrito('Real Madrid 2026', 89.99, 'camisa-real-madrid.jpg')">Añadir al carrito</button>
+                </div>
+
+                
+                <div class="card tarjeta-camisa" data-equipo="fc barcelona barca espana club">
+                    <div class="img-container">
+                        <img src="imagenes/camisa-barcelona.jpg" alt="Camiseta FC Barcelona 2026" class="img-producto">
+                    </div>
+                    <h4>Camiseta FC Barcelona 2026</h4>
+                    <p class="precio">$89.99 USD</p>
+                    <p class="descripcion">Diseño clásico blaugrana con ajuste deportivo moderno.</p>
+                    <button class="btn-card" onclick="agregarAlCarrito('FC Barcelona 2026', 89.99, 'camisa-barcelona.jpg')">Añadir al carrito</button>
+                </div>
+
+                
+                <div class="card tarjeta-camisa" data-equipo="peru seleccion blanquirroja">
+                    <div class="img-container">
+                        <img src="imagenes/camisa-peru.jpg" alt="Camiseta Selección Peruana 2026" class="img-producto">
+                        <span class="badge oferta">-15%</span>
+                    </div>
+                    <h4>Camiseta Selección Peruana 2026</h4>
+                    <p class="precio"><span class="precio-anterior">$79.99</span> $67.99 USD</p>
+                    <p class="descripcion">La franja roja tradicional con acabados de colección.</p>
+                    <button class="btn-card" onclick="agregarAlCarrito('Selección Peruana 2026', 67.99, 'camisa-peru.jpg')">Añadir al carrito</button>
+                </div>
+
+                
+                <div class="card tarjeta-camisa" data-equipo="argentina seleccion albiceleste messi">
+                    <div class="img-container">
+                        <img src="imagenes/camisa-argentina.jpg" alt="Camiseta Argentina 3 Estrellas" class="img-producto">
+                    </div>
+                    <h4>Camiseta Argentina 3 Estrellas</h4>
+                    <p class="precio">$94.99 USD</p>
+                    <p class="descripcion">Edición oficial albiceleste con parche de campeón mundial.</p>
+                    <button class="btn-card" onclick="agregarAlCarrito('Argentina 3 Estrellas', 94.99, 'camisa-argentina.jpg')">Añadir al carrito</button>
+                </div>
+
+               
+                <div class="card tarjeta-camisa" data-equipo="bayern munchen alemania club">
+                    <div class="img-container">
+                        <img src="imagenes/camisa-bayern.jpg" alt="Camiseta Bayern München 2026" class="img-producto">
+                    </div>
+                    <h4>Camiseta Bayern München 2026</h4>
+                    <p class="precio">$84.99 USD</p>
+                    <p class="descripcion">Roja icónica bávara para máxima flexibilidad en cancha.</p>
+                    <button class="btn-card" onclick="agregarAlCarrito('Bayern München 2026', 84.99, 'camisa-bayern.jpg')">Añadir al carrito</button>
+                </div>
+
+                
+                <div class="card tarjeta-camisa" data-equipo="manchester city man city inglaterra club">
+                    <div class="img-container">
+                        <img src="imagenes/camisa-man-city.jpg" alt="Camiseta Manchester City 2026" class="img-producto">
+                        <span class="badge">NUEVO</span>
+                    </div>
+                    <h4>Camiseta Manchester City 2026</h4>
+                    <p class="precio">$89.99 USD</p>
+                    <p class="descripcion">Azul celeste vibrante con detalles dorados de campeón.</p>
+                    <button class="btn-card" onclick="agregarAlCarrito('Manchester City 2026', 89.99, 'camisa-man-city.jpg')">Añadir al carrito</button>
+                </div>
+
+                
+                <div class="card tarjeta-camisa" data-equipo="psg paris saint germain francia jordan club">
+                    <div class="img-container">
+                        <img src="imagenes/camisa-psg.jpg" alt="Camiseta PSG 2026" class="img-producto">
+                    </div>
+                    <h4>Camiseta PSG Jordan 2026</h4>
+                    <p class="precio">$99.99 USD</p>
+                    <p class="descripcion">Edición especial urbana con colaboración de marca.</p>
+                    <button class="btn-card" onclick="agregarAlCarrito('PSG Jordan 2026', 99.99, 'camisa-psg.jpg')">Añadir al carrito</button>
+                </div>
+
+                
+                <div class="card tarjeta-camisa" data-equipo="brasil seleccion verdeamarela neymar">
+                    <div class="img-container">
+                        <img src="imagenes/camisa-brasil.jpg" alt="Camiseta Brasil 2026" class="img-producto">
+                        <span class="badge oferta">-10%</span>
+                    </div>
+                    <h4>Camiseta Brasil Verdeamarela</h4>
+                    <p class="precio"><span class="precio-anterior">$89.99</span> $80.99 USD</p>
+                    <p class="descripcion">El pentacampeón con textura de jaguar tejida en la prenda.</p>
+                    <button class="btn-card" onclick="agregarAlCarrito('Brasil Verdeamarela', 80.99, 'camisa-brasil.jpg')">Añadir al carrito</button>
+                </div>
+            </div>
+
+            <p id="sin-resultados" class="mensaje-vacio" style="display: none; margin-top: 20px;">No se encontraron camisetas que coincidan con tu búsqueda ⚽</p>
+        </section>
+
+        
+        <section id="ofertas" class="banner-promocional">
+            <div class="banner-content">
+                <h3>COLECCIÓN RETRO CLÁSICOS ⚽🔥</h3>
+                <p>Revive la historia con las camisetas icónicas de los mundiales y ligas legendarias.</p>
+                <button class="btn-secondary" onclick="alert('🔥 Próximamente: Colección Retro disponible el próximo mes.')">Explorar Colección Retro</button>
+            </div>
+        </section>
+
+        <section id="contacto" class="seccion-contacto">
+            <div class="contenedor-contacto">
+                <h3>CONTÁCTANOS 📩</h3>
+                <p>¿Tienes alguna consulta sobre tallas, envíos o pedidos personalizados? Escríbenos directamente.</p>
+
+                <form class="formulario-contacto" onsubmit="enviarContacto(event)">
+                    <div class="campo-form">
+                        <label for="nombre-contacto">Nombre completo:</label>
+                        <input type="text" id="nombre-contacto" placeholder="Tu nombre" required>
+                    </div>
+
+                    <div class="campo-form">
+                        <label for="correo-contacto">Correo electrónico / WhatsApp:</label>
+                        <input type="text" id="correo-contacto" placeholder="Tu correo o teléfono" required>
+                    </div>
+
+                    <div class="campo-form">
+                        <label for="mensaje-contacto">Mensaje o consulta:</label>
+                        <textarea id="mensaje-contacto" rows="4" placeholder="Escribe tu consulta por aquí..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary btn-enviar-contacto">ENVIAR CONSULTA</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    
+    <div id="modal-carrito" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🛒 Tu Carrito de Compras</h2>
+                <button class="btn-cerrar" onclick="cerrarCarrito()">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <div id="carrito-lista"></div>
+                
+                <div id="carrito-vacio" class="mensaje-vacio">
+                    <p>Tu carrito está vacío actualmente ⚽</p>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <div class="resumen-total">
+                    <span>Total a pagar:</span>
+                    <strong id="carrito-total">$0.00 USD</strong>
+                </div>
+                <button class="btn-primary btn-checkout" onclick="procesarPago()">FINALIZAR COMPRA</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-tienda">
+        <p>&copy; 2026 Gol & Estilo - Tienda Oficial de Camisetas de Fútbol.</p>
+    </footer>
+
+    
+    <script>
+        let carrito = [];
+
+        function filtrarCamisetas() {
+            let busqueda = document.getElementById('input-buscar-camisa').value.toLowerCase();
+            let tarjetas = document.querySelectorAll('.tarjeta-camisa');
+            let visibles = 0;
+
+            tarjetas.forEach(function(tarjeta) {
+                let titulo = tarjeta.querySelector('h4').textContent.toLowerCase();
+                let descripcion = tarjeta.querySelector('.descripcion').textContent.toLowerCase();
+                let equipo = tarjeta.getAttribute('data-equipo').toLowerCase();
+
+                if (titulo.includes(busqueda) || descripcion.includes(busqueda) || equipo.includes(busqueda)) {
+                    tarjeta.style.display = "flex";
+                    visibles++;
+                } else {
+                    tarjeta.style.display = "none";
+                }
+            });
+
+            let mensajeVacio = document.getElementById('sin-resultados');
+            mensajeVacio.style.display = (visibles === 0) ? "block" : "none";
+        }
+
+        function agregarAlCarrito(nombre, precio, imagen) {
+            let itemExistente = carrito.find(item => item.nombre === nombre);
+
+            if (itemExistente) {
+                itemExistente.cantidad++;
+            } else {
+                carrito.push({ nombre: nombre, precio: precio, imagen: imagen, cantidad: 1 });
+            }
+
+            actualizarCarrito();
+            abrirCarrito();
+        }
+
+        function cambiarCantidad(index, cambio) {
+            carrito[index].cantidad += cambio;
+            if (carrito[index].cantidad <= 0) {
+                carrito.splice(index, 1);
+            }
+            actualizarCarrito();
+        }
+
+        function eliminarItem(index) {
+            carrito.splice(index, 1);
+            actualizarCarrito();
+        }
+
+        function actualizarCarrito() {
+            const listaHTML = document.getElementById('carrito-lista');
+            const totalHTML = document.getElementById('carrito-total');
+            const contadorHTML = document.getElementById('cart-count');
+            const vacioHTML = document.getElementById('carrito-vacio');
+
+            listaHTML.innerHTML = '';
+            let total = 0;
+            let totalCantidad = 0;
+
+            if (carrito.length === 0) {
+                vacioHTML.style.display = 'block';
+            } else {
+                vacioHTML.style.display = 'none';
+
+                carrito.forEach((item, index) => {
+                    let subtotal = item.precio * item.cantidad;
+                    total += subtotal;
+                    totalCantidad += item.cantidad;
+
+                    listaHTML.innerHTML += `
+                        <div class="item-carrito">
+                            <img src="${item.imagen}" alt="${item.nombre}" class="img-carrito">
+                            <div class="info-item">
+                                <h5>${item.nombre}</h5>
+                                <p>$${item.precio.toFixed(2)} USD</p>
+                            </div>
+                            <div class="controles-cantidad">
+                                <button onclick="cambiarCantidad(${index}, -1)">-</button>
+                                <span>${item.cantidad}</span>
+                                <button onclick="cambiarCantidad(${index}, 1)">+</button>
+                            </div>
+                            <button class="btn-eliminar" onclick="eliminarItem(${index})">🗑</button>
+                        </div>
+                    `;
+                });
+            }
+
+            totalHTML.textContent = `$${total.toFixed(2)} USD`;
+            contadorHTML.textContent = totalCantidad;
+        }
+
+        function abrirCarrito() {
+            document.getElementById('modal-carrito').classList.add('activo');
+        }
+
+        function cerrarCarrito() {
+            document.getElementById('modal-carrito').classList.remove('activo');
+        }
+
+        function procesarPago() {
+            if (carrito.length === 0) {
+                alert('El carrito está vacío. Agrega productos antes de pagar.');
+                return;
+            }
+            alert('🎉 ¡Gracias por tu compra en Gol & Estilo! Tu pedido se ha procesado con éxito.');
+            carrito = [];
+            actualizarCarrito();
+            cerrarCarrito();
+        }
+
+        function enviarContacto(e) {
+            e.preventDefault();
+            let nombre = document.getElementById('nombre-contacto').value;
+            alert('📩 ¡Gracias ' + nombre + '! Hemos recibido tu mensaje. Nos pondremos en contacto contigo pronto.');
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
